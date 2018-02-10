@@ -5,13 +5,16 @@ let fs = require('fs');
 let d = new Date();
 let f = formatDate(d);
 
+console.log(fs);
 
 // ファイルにフォーマット済み文字列を出力する
 // 第一引数　出力するパス, 
 // 第二引数　書き込む内容
 // 第三引数　処理終了後に呼ばれるコールバック関数
-fs.wrieFile('./out.txt', f, (error) => {
-	if(error){
+// [./]　現在地（カレントパス）
+// 出力パスはnodeを実行したパスから見たパスに出力される
+fs.writeFile('./out.txt', f, (error) => {
+	if(error != null){
 		throw error;
 	}
 
